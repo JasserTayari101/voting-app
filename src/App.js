@@ -7,7 +7,7 @@ import Login from './pages/Login';
 //import ErrorElement from './layouts/ErrorElement';
 import Polls from './components/Polls';
 import QueryPoll from './components/QueryPoll';
-
+import MyPolls from './components/MyPolls';
 
 
 function App() {
@@ -29,10 +29,15 @@ function App() {
         {
           path: 'one',
           element: <QueryPoll />,
+        },
+        {
+          path: 'my-polls',
+          element: <MyPolls />,
         }
       ]
     }
   ])
+
 
   if(!token) return <Login setToken={setToken} />
 

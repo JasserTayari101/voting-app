@@ -7,7 +7,7 @@ import classes from './login.module.css'
 
 async function loginUser(credentials){
     try{
-        const res = await axios.post('/api/auth/login', JSON.stringify(credentials))
+        const res = await axios.post('/api/auth/login', credentials)
         return res.data.token
     }catch(err){
         console.log(err)
@@ -25,6 +25,7 @@ export default function Login({setToken}){
 
     const submitHandler = async (e)=>{
         e.preventDefault()
+        
         const username = usernameRef.current.value
         const password = passwordRef.current.value
 
@@ -36,7 +37,7 @@ export default function Login({setToken}){
 
     return(
     <div className={classes.loginwrapper}>
-        <form>
+        <form onSubmit={submitHandler}>
         <label>
             <p>Username</p>
             <input type="text" ref={usernameRef} />
@@ -48,7 +49,7 @@ export default function Login({setToken}){
         </label>
       
       <div>
-        <button type="submit" onSubmit={submitHandler}>Submit</button>
+        <button type="submit">Submit</button>
       </div>
         </form>
     </div>
