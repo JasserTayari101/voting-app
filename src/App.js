@@ -1,10 +1,8 @@
-import './App.css';
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout';
 //import ErrorElement from './layouts/ErrorElement';
-import Poll from './components/Poll';
+import Polls from './components/Polls';
 import QueryPoll from './components/QueryPoll';
 
 
@@ -16,10 +14,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Poll />,
+        element: <Polls />,
       },      {
         path: 'all',
-        element: <Poll />,
+        element: <Polls />,
       },
       {
         path: 'one',

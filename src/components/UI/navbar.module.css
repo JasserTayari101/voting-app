@@ -1,0 +1,15 @@
+.navbar {
+  border-radius: 20px;
+  padding: 5px;
+  margin: 5px;
+  background-color: #6b778b;
+}
+.navbar ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbar li {
+  display: flex;
+  align-items: center;
+}/*# sourceMappingURL=navbar.module.css.map */
