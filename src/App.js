@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import MainLayout from './layouts/MainLayout';
+//import ErrorElement from './layouts/ErrorElement';
+import Poll from './components/Poll';
+import QueryPoll from './components/QueryPoll';
+
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainLayout />,
+    //errorElement: <ErrorElement />,
+    children: [
+      {
+        index: true,
+        element: <Poll />,
+      },      {
+        path: 'all',
+        element: <Poll />,
+      },
+      {
+        path: 'one',
+        element: <QueryPoll />,
+      }
+    ]
+  }
+])
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
