@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { useState } from 'react';
 
 import MainLayout from './layouts/MainLayout';
 import Login from './pages/Login';
@@ -8,10 +7,14 @@ import Login from './pages/Login';
 import Polls from './components/Polls';
 import QueryPoll from './components/QueryPoll';
 import MyPolls from './components/MyPolls';
+import Poll from './components/Poll';
+
+import useToken from './hooks/useToken';  
 
 
 function App() {
-  const [token, setToken] = useState();
+
+  const { token, setToken} = useToken();
 
   const router = createBrowserRouter([
     {
@@ -33,11 +36,14 @@ function App() {
         {
           path: 'my-polls',
           element: <MyPolls />,
+        },
+        {
+          path: 'poll/:id',
+          element: <Poll />
         }
       ]
     }
   ])
-
 
   if(!token) return <Login setToken={setToken} />
 

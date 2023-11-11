@@ -1,12 +1,15 @@
 import classes from './poll.module.css'
+import { useParams } from 'react-router-dom'
 
+export default function Poll(props){
+    const {id} = useParams()
 
-export default function Poll({poll}){
     return(
         <div>
-            <h2> {poll.question} </h2>
+            <h1> Poll Id: {id} </h1>
+            {/*<h2> {props.poll.question} </h2>
             <form>
-                {poll.options.map(({option, votes, _id}, index)=>(
+                {props.poll.options.map(({option, votes, _id}, index)=>(
                     <div>
                         <label htmlFor="answer" key={_id}> {option} </label>
                             <input type="radio" name="optionIndex" id={_id} value={index}/>
@@ -15,7 +18,7 @@ export default function Poll({poll}){
                 ))}
 
                 <button type="submit"> Submit Answer </button>
-            </form>
+                </form> */}
         </div>
     )
 }

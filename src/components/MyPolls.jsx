@@ -4,21 +4,30 @@ import axios from "axios";
 
 import Poll from "./Poll";
 
+import useToken from "../hooks/useToken";
 
 export default function MyPolls(props){
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [polls, setPolls] = useState([])
 
-
+    const {token , setToken} = useToken();
 
     useEffect(()=>{
         const fetchData = async ()=>{
             try{
                 setIsLoading(true)
-                const res = await axios.get("/api/poll/my-polls")
+                const res = await axios.get("/api/poll/my-polls", {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
                 
-                console.log(res.data.polls);
+                if(res.data?.error){
+                    setError(res.data.error)
+                    return 1;
+                }
+
                 setPolls(res.data.polls)
                 setError(null)
             }catch(err){

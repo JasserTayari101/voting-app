@@ -18,7 +18,6 @@ export default function Polls(props){
                 setIsLoading(true)
                 const res = await axios.get("/api/poll")
                 
-                console.log(res.data.polls);
                 setPolls(res.data.polls)
                 setError(null)
             }catch(err){
