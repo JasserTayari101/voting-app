@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 
-import Poll from "./Poll";
 
 import useToken from "../hooks/useToken";
+
+import { Link } from "react-router-dom";
 
 export default function MyPolls(props){
     const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +50,7 @@ export default function MyPolls(props){
         <ul>
             {polls.map(poll=>(
                 <li key={poll._id}>
-                    <Poll poll={poll} />
+                    <Link to={`/poll/${poll._id}`}> {poll.question} </Link>
                 </li>
             ))}
         </ul>
