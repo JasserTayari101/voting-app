@@ -1,11 +1,9 @@
-import { useState, useRef } from "react"
+import {  useRef } from "react"
 
 import { useNavigate } from "react-router-dom"
 
 export default function QueryPoll(){
     const navigate = useNavigate()
-
-    const [error, setError] = useState(null)
 
     const pollIdRef = useRef()
 
@@ -28,7 +26,6 @@ export default function QueryPoll(){
 
                 <input type="submit" value="Query Poll" />
             </form>
-            {error? <h2>{error}</h2>: ''}
         </div>
     )
 }

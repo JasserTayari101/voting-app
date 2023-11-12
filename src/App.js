@@ -8,13 +8,15 @@ import Polls from './components/Polls';
 import QueryPoll from './components/QueryPoll';
 import MyPolls from './components/MyPolls';
 import Poll from './components/Poll';
-
+import NewPoll from './components/NewPoll';
 
 import axios from 'axios';
 
 import useToken from './hooks/useToken';  
 import { useEffect, useState } from 'react';
-    
+   
+
+//  used to send a request to the api to check for token validity
 async function validateToken(token){
     const res = await axios.get('/api/auth/validatetoken', {
     headers: {
@@ -34,6 +36,7 @@ function App() {
   const { token, setToken, getToken} = useToken();
   const [isValidating, setIsValidating] = useState(true)
 
+  //  check token validity every x seconds
   useEffect(() => {
     const callValidate = async () => {
       const tokenIsValid = await validateToken(getToken());
@@ -82,6 +85,10 @@ function App() {
         {
           path: 'poll/:id',
           element: <Poll />
+        },
+        {
+          path: 'poll/new',
+          element: <NewPoll />
         }
       ]
     }

@@ -12,7 +12,9 @@ export default function Poll(props){
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [poll, setPoll] = useState(null)
-    
+    const [hasSubmit, setHasSubmit] = useState(false)
+
+
     const [selectedIndex,setSelectedIndex] = useState(0)
 
     const {id} = useParams()
@@ -37,7 +39,7 @@ export default function Poll(props){
             }
         }
         fetchData()
-    }, [])
+    }, [hasSubmit])
 
 
     
@@ -53,9 +55,16 @@ export default function Poll(props){
             const res = await axios.put(`/api/poll/${id}/vote`,{optionIndex: Number(selectedIndex)}, {
                 headers:{
                     Authorization: `Bearer ${token}`
+                },
+                validateStatus: status=>{
+                    return status<500
                 }
             })
-            console.log("submited")
+
+            if(res.data?.error)
+                setError(res.data.error)
+            else
+                setHasSubmit(true)    
         }catch(err){
             console.log(err)
         }

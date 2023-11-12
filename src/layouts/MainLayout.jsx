@@ -13,7 +13,7 @@ export default function MainLayout(){
     const links = [
     {path: 'all', name: 'All Polls', icon: <PollIcon /> }, 
     {path: 'one', name: 'Query Poll', icon: <SearchIcon />}, 
-    {path: 'new', name: 'Create Poll', icon: <AddIcon/>}, 
+    {path: 'poll/new', name: 'Create Poll', icon: <AddIcon/>}, 
     {path: 'my-polls',name:'My Polls', icon: <FolderCopyIcon/>} 
     ]
     return(
