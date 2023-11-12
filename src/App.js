@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 
 //  used to send a request to the api to check for token validity
 async function validateToken(token){
-    const res = await axios.get('/api/auth/validatetoken', {
+    const res = await axios.get('http://51.20.189.38:8080/api/auth/validatetoken', {
     headers: {
         Authorization: `Bearer ${token}`
     },
@@ -26,6 +26,7 @@ async function validateToken(token){
         return status < 500;
     },
     });
+
 
     return res.data?.message == "valid token"
 }
@@ -40,7 +41,6 @@ function App() {
   useEffect(() => {
     const callValidate = async () => {
       const tokenIsValid = await validateToken(getToken());
-      console.log("not valid")
       if (!tokenIsValid) {
         localStorage.removeItem('token');
         setToken(null);
@@ -54,7 +54,7 @@ function App() {
     // Set up interval for repeated validation every 5 minutes
     const intervalId = setInterval(() => {
       callValidate();
-    }, 5000); 
+    }, 2000); 
 
     // Clean up interval when the component is unmounted
     return () => clearInterval(intervalId);

@@ -28,7 +28,7 @@ export default function Poll(props){
         const fetchData = async ()=>{
             try{
                 setIsLoading(true)
-                const res = await axios.get(`/api/poll/${id}`)
+                const res = await axios.get(`http://51.20.189.38:8080/api/poll/${id}`)
                 if(res.data?.error){
                     setError(res.data.error)
                     return 1;
@@ -55,7 +55,7 @@ export default function Poll(props){
         e.preventDefault()
 
         try{
-            const res = await axios.put(`/api/poll/${id}/vote`,{optionIndex: Number(selectedIndex)}, {
+            const res = await axios.put(`http://51.20.189.38:8080/api/poll/${id}/vote`,{optionIndex: Number(selectedIndex)}, {
                 headers:{
                     Authorization: `Bearer ${token}`
                 },

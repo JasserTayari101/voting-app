@@ -18,7 +18,7 @@ export default function Polls(props){
         const fetchData = async ()=>{
             try{
                 setIsLoading(true)
-                const res = await axios.get("/api/poll")
+                const res = await axios.get("http://51.20.189.38:8080/api/poll")
                 
                 setPolls(res.data.polls)
                 setError(null)

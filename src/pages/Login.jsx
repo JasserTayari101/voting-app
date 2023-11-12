@@ -26,7 +26,7 @@ function SignIn({setToken, onChange}){
     async function loginUser(credentials){
         setError(null)
         try{
-            const res = await axios.post('/api/auth/login',credentials,{
+            const res = await axios.post('http://51.20.189.38:8080/api/auth/login',credentials,{
                 validateStatus: status=>{
                     return status<500
                 }
@@ -98,7 +98,7 @@ function Register({setToken, onChange}){
     async function registerUser(credentials){
         setError(null)
         try{
-            const res = await axios.post('/api/auth/register',credentials,{
+            const res = await axios.post('http://51.20.189.38:8080/api/auth/register',credentials,{
                 validateStatus: status=>{
                     return status<500
                 }

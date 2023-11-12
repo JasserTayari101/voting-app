@@ -67,7 +67,7 @@ export default function NewPoll(){
 
         //send request
         try{
-            const res = await axios.post('/api/poll/new', {question, options, privacy: selectedPrivacy}, {
+            const res = await axios.post('http://51.20.189.38:8080/api/poll/new', {question, options, privacy: selectedPrivacy}, {
                 headers:{
                     Authorization: `Bearer ${token}`
                 

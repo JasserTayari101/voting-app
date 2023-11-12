@@ -20,7 +20,7 @@ export default function MyPolls(props){
         const fetchData = async ()=>{
             try{
                 setIsLoading(true)
-                const res = await axios.get("/api/poll/my-polls", {
+                const res = await axios.get("http://51.20.189.38:8080/api/poll/my-polls", {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
