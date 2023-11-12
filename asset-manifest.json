@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/voting-app/static/css/main.ecf015c9.css",
+    "main.js": "/voting-app/static/js/main.ea4e2cff.js",
+    "static/media/bg.png": "/voting-app/static/media/bg.78052c53d69d55239570.png",
+    "index.html": "/voting-app/index.html",
+    "main.ecf015c9.css.map": "/voting-app/static/css/main.ecf015c9.css.map",
+    "main.ea4e2cff.js.map": "/voting-app/static/js/main.ea4e2cff.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ecf015c9.css",
+    "static/js/main.ea4e2cff.js"
+  ]
+}
