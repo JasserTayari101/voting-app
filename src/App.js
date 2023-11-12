@@ -40,6 +40,7 @@ function App() {
   useEffect(() => {
     const callValidate = async () => {
       const tokenIsValid = await validateToken(getToken());
+      console.log("not valid")
       if (!tokenIsValid) {
         localStorage.removeItem('token');
         setToken(null);

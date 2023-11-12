@@ -19,8 +19,10 @@ export default function useToken(){
     const [token, setToken] = useState(getToken())
 
     const saveToken = (token)=>{
-        localStorage.setItem('token', JSON.stringify(token))
-        setToken(token)
+        localStorage.setItem('token', JSON.stringify(token?token.token: null))
+        localStorage.setItem('username', JSON.stringify(token? token.username: null))
+        localStorage.setItem('profilePic', JSON.stringify(token? token.profilePic: null))
+        setToken(token? token.token : null)
     }
     
 

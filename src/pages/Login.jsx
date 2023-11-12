@@ -35,7 +35,8 @@ function SignIn({setToken, onChange}){
                 setError(res.data.error)
                 return 1;
             }
-            return res.data.token
+            console.log(res.data)
+            return {token: res.data.token, username: res.data.username, profilePic: res.data.profilePic}
         }catch(err){
             console.log(err)
         }
@@ -49,9 +50,9 @@ function SignIn({setToken, onChange}){
 
         const token = await loginUser({username, password})
 
-        if(token != 1)
+        if(token != 1){
             setToken(token)
-
+        }
     }
 
 
@@ -106,7 +107,7 @@ function Register({setToken, onChange}){
                 setError(res.data.error)
                 return 1;
             }
-            return res.data.token
+            return {token: res.data.token, username: res.data.username, profilePic: res.data.profilePic}
         }catch(err){
             console.log(err)
         }
@@ -120,8 +121,9 @@ function Register({setToken, onChange}){
 
         const token = await registerUser({username, password})
 
-        if(token != 1)
+        if(token != 1){
             setToken(token)
+        }
 
     }
 
