@@ -1,6 +1,9 @@
 import {  useRef } from "react"
 
 import { useNavigate } from "react-router-dom"
+import MainBtn from "./UI/main_button/MainBtn"
+
+import classes from './querypoll.module.css'
 
 export default function QueryPoll(){
     const navigate = useNavigate()
@@ -19,12 +22,12 @@ export default function QueryPoll(){
 
 
     return(
-        <div>
+        <div className={classes.querywrapper}>
             <form onSubmit={submitHandler}>
                 <label for="q">Poll Id</label>
                 <input ref={pollIdRef} type="text" id="q" name="q" minLength={20} maxLength={30}/>
 
-                <input type="submit" value="Query Poll" />
+                <MainBtn className={classes.querybtn}>Query Poll</MainBtn>
             </form>
         </div>
     )

@@ -7,6 +7,8 @@ import useToken from "../hooks/useToken";
 
 import { Link } from "react-router-dom";
 
+import classes from './polls.module.css'
+
 export default function MyPolls(props){
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -49,8 +51,8 @@ export default function MyPolls(props){
 
         <ul>
             {polls.map(poll=>(
-                <li key={poll._id}>
-                    <Link to={`/poll/${poll._id}`}> {poll.question} </Link>
+                <li className={classes.polllist} key={poll._id}>
+                    <Link className={classes.polllink} to={`/poll/${poll._id}`}> {poll.question} </Link>
                 </li>
             ))}
         </ul>

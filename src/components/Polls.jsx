@@ -5,6 +5,8 @@ import axios from "axios";
 
 import { Link } from "react-router-dom";
 
+import classes from './polls.module.css'
+
 export default function Polls(props){
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -36,10 +38,10 @@ export default function Polls(props){
         {error && <div> {error} </div>}
         {!isLoading && !error && polls.length == 0? <h2>No Polls</h2> : 
 
-        <ul>
+        <ul className={classes.polllist}>
             {polls.map(poll=>(
-                <li key={poll._id}>
-                    <Link to={`/poll/${poll._id}`}> {poll.question} </Link>
+                <li className={classes.polllink} key={poll._id}>
+                    <Link  to={`/poll/${poll._id}`}> {poll.question} </Link>
                 </li>
             ))}
         </ul>

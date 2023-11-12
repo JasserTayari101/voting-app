@@ -5,7 +5,10 @@ import useToken from "../hooks/useToken"
 import { useNavigate } from "react-router-dom"
 
 import axios from "axios"
+import MainBtn from "./UI/main_button/MainBtn"
+import Card from './UI/card/Card'
 
+import classes from './newpoll.module.css'
 
 function PollOption(props){
     const [inputValue, setInputValue] = useState('')
@@ -90,31 +93,33 @@ export default function NewPoll(){
 
 
     return(
-        <div>
-            <form onSubmit={submitHandler}>
-                <label htmlFor="question">Question Title</label>
-                    <input ref={questionRef} type="text" id="question" minLength="5" />
-                
-                
-                <div id="options" ref={optionsRef}>
-                    {options.map(option=>(
-                        <PollOption id={option.id} name={option.name} />
-                    ))}
+        <div className={classes.newpollpage}>
+            <Card className={classes.newpollwrapper}>
+                <form onSubmit={submitHandler}>
+                    <label htmlFor="question">Question Title</label>
+                        <input ref={questionRef} type="text" id="question" minLength="5" placeholder="What's on your mind" />
+                    
+                    
+                    <div id="options" ref={optionsRef}>
+                        {options.map(option=>(
+                            <PollOption id={option.id} name={option.name} />
+                        ))}
 
-                </div>
-                    <button onClick={addOptionHandler}>Add Option</button>
-
-                <label htmlFor="visiblity">Poll Visibility</label>
-                    <div id="visibility">
-                        <label htmlFor="public">Public</label>
-                            <input type="radio" name="visibility" value="public" id="public" checked={selectedPrivacy == 'public'} onChange={handleSelectChange} />
-
-                        <label htmlFor="private">Private</label> 
-                            <input type="radio" name="visibility" value="private" id="private" checked={selectedPrivacy == 'private'} onChange={handleSelectChange} />
                     </div>
-                <button type="submit">Submit</button>
-            </form>
-            {error && <div> {error} </div>}
+                        <MainBtn onClick={addOptionHandler}>Add Option</MainBtn>
+
+                    <label htmlFor="visiblity">Poll Visibility</label>
+                        <div id="visibility">
+                            <label htmlFor="public">Public</label>
+                                <input type="radio" name="visibility" value="public" id="public" checked={selectedPrivacy == 'public'} onChange={handleSelectChange} />
+
+                            <label htmlFor="private">Private</label> 
+                                <input type="radio" name="visibility" value="private" id="private" checked={selectedPrivacy == 'private'} onChange={handleSelectChange} />
+                        </div>
+                    <MainBtn className={classes.submitbtn}>Submit</MainBtn>
+                </form>
+                {error && <div> {error} </div>}
+            </Card>
         </div>
     )
 

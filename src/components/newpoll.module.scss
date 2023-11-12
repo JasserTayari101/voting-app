@@ -1,15 +1,20 @@
-.loginpage{
-    min-height: 100vh;
+.newpollpage{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.loginwrapper {
+
+.newpollwrapper{
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     background-color: #6b778b;
+    padding: 50px;
+    gap: 10px;
 
     form{
         display: flex;
@@ -20,22 +25,14 @@
         padding: 5px;
 
         label{
-            width: 60%;
-
-            div{
-                display: flex;
-            }
+            width: 80%;
         }
 
     }
-}
-
-.loginbtn{
-    background-color: rgb(33, 28, 37);
-    color: #edf5e1;
 }
 
 .submitbtn{
     background-color: rgb(46, 49, 90);
     color: #edf5e1;
 }
+

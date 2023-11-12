@@ -7,6 +7,9 @@ import axios from "axios";
 import { useParams } from 'react-router-dom'
 
 import useToken from '../hooks/useToken';
+import MainBtn from './UI/main_button/MainBtn';
+
+import Error from './error/Error'
 
 export default function Poll(props){
     const [isLoading, setIsLoading] = useState(true);
@@ -75,22 +78,22 @@ export default function Poll(props){
     <div>
         
         {isLoading && <div> Loading... </div>}
-        {error && <div> {error} </div>}
         {!isLoading && poll == null? <h2>No Polls</h2> : 
         <div>        
             <h2> {poll?.question} </h2>
             <form onSubmit={submitHandler}>
                 {poll?.options.map(({option, votes, _id}, index)=>(
                     <div>
-                        <label htmlFor="answer" key={_id}> {option} </label>
                             <input type="radio" name="optionIndex" id={_id} value={index} checked={index == selectedIndex} onChange={handleSelectChange}/>
-                        <span> {votes} people voted for this </span>
+                        <label htmlFor="answer" key={_id}> {option} </label>
+                        <span>( {votes} people voted for this )</span>
                     </div>
                 ))}
 
-                <button type="submit"> Submit Answer </button>
+                <MainBtn> Submit Answer </MainBtn>
                 </form>
         </div>}
+        {error && <Error> {error} </Error>}
     </div>
     
     )

@@ -7,11 +7,17 @@ import classes from './login.module.css'
 
 import Card from '../components/UI/card/Card';
 import MainBtn from '../components/UI/main_button/MainBtn';
+import Error from '../components/error/Error';
+
+
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 
 function SignIn({setToken, onChange}){
     const [error, setError] = useState(null)
-
+    const [passwordIsVisible, setPasswordIsVisible] = useState(false)
+    
     const usernameRef = useRef();
     const passwordRef = useRef();
     
@@ -52,7 +58,7 @@ function SignIn({setToken, onChange}){
 
     return(
     <Card className={classes.loginwrapper}>
-        <h2>Sign Up</h2>
+        <h2>Sign In</h2>
         <form onSubmit={submitHandler}>
             <label>
                 <span>Username</span>
@@ -61,15 +67,18 @@ function SignIn({setToken, onChange}){
             
             <label>
                 <span>Password</span>
-                <input type="password" ref={passwordRef} placeholder='Password' />
+                <div>
+                    <input type={passwordIsVisible? 'text': 'password'} ref={passwordRef} placeholder='Password'/>
+                    {passwordIsVisible? <VisibilityOffIcon style={{verticalAlign: 'bottom'}} onClick={()=>{setPasswordIsVisible(false)}}/> : <VisibilityIcon style={{verticalAlign: 'bottom'}} onClick={()=>{setPasswordIsVisible(true)}}/>}
+                </div>
             </label>
         
         <div>
-            <MainBtn>Submit</MainBtn>
+            <MainBtn className={classes.submitbtn} >Submit</MainBtn>
         </div>
         </form>
 
-        {error? <h3>{error}</h3> : ''}
+        {error? <Error>{error}</Error> : ''}
 
         <MainBtn className={classes.loginbtn} onClick={()=>onChange('register')}>No account? Register Instead</MainBtn>
     </Card>
@@ -78,6 +87,7 @@ function SignIn({setToken, onChange}){
 
 function Register({setToken, onChange}){
     const [error, setError] = useState(null)
+    const [passwordIsVisible, setPasswordIsVisible] = useState(false)
 
     const usernameRef = useRef();
     const passwordRef = useRef();
@@ -119,7 +129,7 @@ function Register({setToken, onChange}){
 
     return(
     <Card className={classes.loginwrapper}>
-        <h2>Sign In</h2>
+        <h2>Sign Up</h2>
         <form onSubmit={submitHandler}>
             <label>
                 <span>Username</span>
@@ -128,15 +138,18 @@ function Register({setToken, onChange}){
             
             <label>
                 <span>Password</span>
-                <input type="password" ref={passwordRef} placeholder='Password'/>
+                <div>
+                    <input type={passwordIsVisible? 'text': 'password'} ref={passwordRef} placeholder='Password'/>
+                    {passwordIsVisible? <VisibilityOffIcon style={{verticalAlign: 'bottom'}} onClick={()=>{setPasswordIsVisible(false)}}/> : <VisibilityIcon style={{verticalAlign: 'bottom'}} onClick={()=>{setPasswordIsVisible(true)}}/>}
+                </div>
             </label>
         
         <div>
-            <MainBtn>Submit</MainBtn>
+            <MainBtn className={classes.submitbtn}>Submit</MainBtn>
         </div>
         </form>
 
-        {error? <h3>{error}</h3> : ''}
+        {error? <Error>{error}</Error> : ''}
 
         <MainBtn className={classes.loginbtn} onClick={()=>onChange('signin')}>Sign-In instead</MainBtn>
     </Card>

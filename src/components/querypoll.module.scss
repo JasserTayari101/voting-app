@@ -1,0 +1,21 @@
+.querywrapper{
+    min-width: 100vw;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10vh;
+
+    form{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+.querybtn{
+    background-color: #6b778b;
+}
