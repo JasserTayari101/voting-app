@@ -1,0 +1,13 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border: none;
+  border-radius: 12px;
+  width: -moz-fit-content;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+.card:hover {
+  box-shadow: 5px 5px 5px #babec5;
+}/*# sourceMappingURL=card.module.css.map */

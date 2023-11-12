@@ -1,0 +1,8 @@
+.mainbtn {
+  padding: 5px;
+  border: none;
+  border-radius: 18px;
+}
+.mainbtn:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=mainbtn.module.css.map */

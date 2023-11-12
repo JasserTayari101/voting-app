@@ -3,12 +3,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: center;
   font-family: "Rajdhani", sans-serif;
   font-size: large;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #2b2d42;
-  color: #edf2f4;
+  background-image: url("./assets/bg.png");
+  color: #edf5e1;
 }
 body li {
   list-style-type: none;

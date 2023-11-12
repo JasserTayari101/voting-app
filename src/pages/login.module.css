@@ -1,5 +1,24 @@
+.loginpage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .loginwrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #6b778b;
+}
+.loginwrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+
+.loginbtn {
+  background-color: rgb(33, 28, 37);
+  color: #edf5e1;
 }/*# sourceMappingURL=login.module.css.map */

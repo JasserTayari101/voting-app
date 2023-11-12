@@ -2,7 +2,7 @@ import React from "react";
 
 import { Outlet } from "react-router-dom";
 
-import Navbar from "../components/UI/Navbar";
+import Navbar from "../components/UI/navbar/Navbar";
 
 import PollIcon from '@mui/icons-material/Poll';
 import SearchIcon from '@mui/icons-material/Search';
